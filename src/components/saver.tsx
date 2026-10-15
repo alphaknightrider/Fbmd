@@ -148,9 +148,9 @@ export function Saver() {
 
   return (
     <main className="mx-auto flex min-h-screen w-full max-w-3xl flex-col px-4 py-8 sm:px-6 sm:py-14">
-      <header className="flex items-center justify-between gap-4">
+      <header className="enter flex items-center justify-between gap-4">
         <div className="flex items-center gap-3">
-          <span className="flex size-11 items-center justify-center rounded-xl bg-primary text-primary-fg">
+          <span className="mark flex size-11 items-center justify-center rounded-xl bg-primary text-primary-fg">
             <Download className="size-5" aria-hidden="true" />
           </span>
           <div>
@@ -163,15 +163,16 @@ export function Saver() {
 
       <section className="mt-10 sm:mt-14">
         <h1 className="font-display text-4xl leading-tight font-semibold tracking-tight text-balance sm:text-5xl">
-          Save the video, reel, or photo behind a public link.
+          <span className="enter d2 block">Save the video, reel, or photo</span>
+          <span className="enter d3 block">behind a public link.</span>
         </h1>
-        <p className="mt-4 max-w-2xl text-base text-muted sm:text-lg">
+        <p className="enter d4 mt-4 max-w-2xl text-base text-muted sm:text-lg">
           Paste a Facebook, fb.watch, or fb.me address. Halden reads the public page and gives you the real file —
           highest quality first.
         </p>
 
         <form
-          className="mt-8 flex flex-col gap-3 sm:flex-row"
+          className="enter d5 mt-8 flex flex-col gap-3 sm:flex-row"
           onSubmit={(event) => {
             event.preventDefault();
             void resolve(url);
@@ -191,12 +192,12 @@ export function Saver() {
               autoCapitalize="off"
               autoCorrect="off"
               spellCheck={false}
-              className="h-12 w-full rounded-xl border border-border bg-surface pr-12 pl-11 text-base text-fg outline-none placeholder:text-faint focus-visible:border-primary"
+              className="field h-12 w-full rounded-xl border border-border bg-surface pr-12 pl-11 text-base text-fg outline-none placeholder:text-faint"
             />
             {url ? (
               <button
                 type="button"
-                className="absolute top-1/2 right-2 flex size-8 -translate-y-1/2 items-center justify-center rounded-lg text-muted hover:bg-surface-2 hover:text-fg"
+                className="press absolute top-1/2 right-2 flex size-8 -translate-y-1/2 items-center justify-center rounded-lg text-muted hover:bg-surface-2 hover:text-fg"
                 onClick={() => {
                   setUrl("");
                   setError(null);
@@ -210,14 +211,17 @@ export function Saver() {
           <button
             type="submit"
             disabled={loading}
-            className="inline-flex h-12 items-center justify-center gap-2 rounded-xl bg-primary px-5 text-base font-medium text-primary-fg transition-opacity duration-200 hover:opacity-90 disabled:opacity-60"
+            className="press inline-flex h-12 items-center justify-center gap-2 rounded-xl bg-primary px-5 text-base font-medium text-primary-fg hover:opacity-90 disabled:opacity-60"
           >
-            {loading ? <Loader2 className="size-5 animate-spin motion-reduce:animate-none" /> : <Download className="size-5" />}
+            <span className="relative grid size-5 place-items-center">
+              <Download className={`icon-swap col-start-1 row-start-1 size-5 ${loading ? "icon-off" : "icon-on"}`} aria-hidden="true" />
+              <Loader2 className={`icon-swap col-start-1 row-start-1 size-5 ${loading ? "icon-on animate-spin motion-reduce:animate-none" : "icon-off"}`} aria-hidden="true" />
+            </span>
             {loading ? "Reading" : "Fetch media"}
           </button>
         </form>
 
-        <ul className="mt-4 flex flex-wrap gap-2">
+        <ul className="enter d6 mt-4 flex flex-wrap gap-2">
           {HINTS.map((hint) => (
             <li key={hint} className="rounded-full border border-border px-3 py-1 text-xs text-faint">
               {hint}
@@ -226,7 +230,7 @@ export function Saver() {
         </ul>
 
         {error ? (
-          <p role="alert" className="mt-4 flex items-start gap-2 text-sm text-fg">
+          <p role="alert" className="enter mt-4 flex items-start gap-2 text-sm text-fg">
             <CircleAlert className="mt-0.5 size-4 shrink-0 text-primary" aria-hidden="true" />
             <span>{error}</span>
           </p>
@@ -234,11 +238,26 @@ export function Saver() {
       </section>
 
       {loading && !result ? (
-        <p className="mt-10 text-sm text-muted">Opening the public page and picking the best file…</p>
+        <div className="enter mt-10" role="status">
+          <p className="text-sm text-muted">Opening the public page and picking the best file…</p>
+          <div className="relative mt-4 h-1 overflow-hidden rounded-full bg-surface-2">
+            <span className="scan-bar" />
+          </div>
+          <div className="mt-4 space-y-3">
+            <div className="shimmer h-48 rounded-xl" />
+            <div className="shimmer h-12 rounded-xl" />
+            <div className="shimmer h-12 w-2/3 rounded-xl" />
+          </div>
+        </div>
       ) : null}
 
       {result ? (
-        <section className="rise mt-10 rounded-lg border border-border bg-surface p-4 sm:p-5" aria-live="polite">
+        <section className="enter relative mt-10 overflow-hidden rounded-lg border border-border bg-surface p-4 sm:p-5" aria-live="polite" aria-busy={loading}>
+          {loading ? (
+            <div className="absolute inset-x-0 top-0 h-1 overflow-hidden bg-surface-2">
+              <span className="scan-bar" />
+            </div>
+          ) : null}
           <div className="flex flex-wrap items-center gap-2 text-sm text-muted">
             <span className="inline-flex items-center gap-1.5 rounded-full bg-surface-2 px-2.5 py-1 text-fg">
               <KindIcon kind={result.kind} />
@@ -257,7 +276,7 @@ export function Saver() {
           {best ? (
             <video
               key={best.url}
-              className="mt-4 max-h-player w-full rounded-xl bg-bg"
+              className="media-in enter mt-4 max-h-player w-full rounded-xl bg-bg"
               controls
               playsInline
               preload="metadata"
@@ -273,7 +292,7 @@ export function Saver() {
               ) : (
                 <h3 className="mb-2 text-sm font-medium text-muted">Qualities</h3>
               )}
-              <ul className="divide-y divide-border overflow-hidden rounded-xl border border-border">
+              <ul className="stagger divide-y divide-border overflow-hidden rounded-xl border border-border">
                 {clip.variants.map((variant, index) => {
                   const name = variantName(result.title, variant, index);
                   const size = formatBytes(variant.bytes);
@@ -290,8 +309,8 @@ export function Saver() {
                         href={fileHref(variant.url, name)}
                         className={
                           index === 0 && clipIndex === 0
-                            ? "inline-flex h-11 shrink-0 items-center gap-2 rounded-xl bg-primary px-3 text-sm font-medium text-primary-fg"
-                            : "inline-flex h-11 shrink-0 items-center gap-2 rounded-xl border border-border px-3 text-sm font-medium text-fg"
+                            ? "press inline-flex h-11 shrink-0 items-center gap-2 rounded-xl bg-primary px-3 text-sm font-medium text-primary-fg"
+                            : "press inline-flex h-11 shrink-0 items-center gap-2 rounded-xl border border-border px-3 text-sm font-medium text-fg"
                         }
                       >
                         <Download className="size-4" aria-hidden="true" />
@@ -307,7 +326,7 @@ export function Saver() {
           {result.images.length > 0 && result.clips.length > 0 ? (
             <a
               href={fileHref(result.images[0].url, imageName(result.title, result.images[0], 0))}
-              className="mt-4 inline-flex h-11 items-center gap-2 text-sm font-medium text-muted hover:text-fg"
+              className="press mt-4 inline-flex h-11 items-center gap-2 text-sm font-medium text-muted hover:text-fg"
             >
               <ImageIcon className="size-4" aria-hidden="true" />
               Save cover image
@@ -321,7 +340,7 @@ export function Saver() {
                 {result.images.length > 1 ? (
                   <button
                     type="button"
-                    className="inline-flex h-11 items-center gap-2 rounded-xl border border-border px-3 text-sm font-medium"
+                    className="press inline-flex h-11 items-center gap-2 rounded-xl border border-border px-3 text-sm font-medium"
                     onClick={() => {
                       result.images.forEach((image, index) => {
                         const anchor = document.createElement("a");
@@ -338,7 +357,7 @@ export function Saver() {
                   </button>
                 ) : null}
               </div>
-              <ul className="grid grid-cols-2 gap-3 sm:grid-cols-3">
+              <ul className="stagger grid grid-cols-2 gap-3 sm:grid-cols-3">
                 {result.images.map((image, index) => {
                   const name = imageName(result.title, image, index);
                   return (
@@ -363,12 +382,12 @@ export function Saver() {
       {recent.length > 0 ? (
         <section className="mt-10">
           <h2 className="text-sm font-medium text-muted">Recent</h2>
-          <ul className="mt-3 divide-y divide-border overflow-hidden rounded-xl border border-border">
+          <ul className="stagger mt-3 divide-y divide-border overflow-hidden rounded-xl border border-border">
             {recent.map((item) => (
               <li key={item.url}>
                 <button
                   type="button"
-                  className="flex w-full items-center gap-3 px-3 py-3 text-left hover:bg-surface"
+                  className="press flex w-full items-center gap-3 px-3 py-3 text-left transition-colors duration-200 hover:bg-surface"
                   onClick={() => void resolve(item.url)}
                 >
                   <KindIcon kind={item.kind} />

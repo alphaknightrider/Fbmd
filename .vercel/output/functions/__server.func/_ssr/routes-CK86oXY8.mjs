@@ -1,7 +1,7 @@
 import { i as __toESM } from "../_runtime.mjs";
 import { K as require_react, b as require_jsx_runtime } from "../_libs/@tanstack/react-router+[...].mjs";
 import { a as Image, c as Clock3, i as Link2, l as Clapperboard, o as Film, r as LoaderCircle, s as Download, t as X, u as CircleAlert } from "../_libs/lucide-react.mjs";
-//#region node_modules/.nitro/vite/services/ssr/assets/routes-D_KRwW7j.js
+//#region node_modules/.nitro/vite/services/ssr/assets/routes-CK86oXY8.js
 var import_react = /* @__PURE__ */ __toESM(require_react());
 var import_jsx_runtime = require_jsx_runtime();
 var RECENT_KEY = "halden.recent";
@@ -118,11 +118,11 @@ function Saver() {
 		className: "mx-auto flex min-h-screen w-full max-w-3xl flex-col px-4 py-8 sm:px-6 sm:py-14",
 		children: [
 			/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("header", {
-				className: "flex items-center justify-between gap-4",
+				className: "enter flex items-center justify-between gap-4",
 				children: [/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
 					className: "flex items-center gap-3",
 					children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
-						className: "flex size-11 items-center justify-center rounded-xl bg-primary text-primary-fg",
+						className: "mark flex size-11 items-center justify-center rounded-xl bg-primary text-primary-fg",
 						children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Download, {
 							className: "size-5",
 							"aria-hidden": "true"
@@ -142,16 +142,22 @@ function Saver() {
 			/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("section", {
 				className: "mt-10 sm:mt-14",
 				children: [
-					/* @__PURE__ */ (0, import_jsx_runtime.jsx)("h1", {
+					/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("h1", {
 						className: "font-display text-4xl leading-tight font-semibold tracking-tight text-balance sm:text-5xl",
-						children: "Save the video, reel, or photo behind a public link."
+						children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
+							className: "enter d2 block",
+							children: "Save the video, reel, or photo"
+						}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
+							className: "enter d3 block",
+							children: "behind a public link."
+						})]
 					}),
 					/* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", {
-						className: "mt-4 max-w-2xl text-base text-muted sm:text-lg",
+						className: "enter d4 mt-4 max-w-2xl text-base text-muted sm:text-lg",
 						children: "Paste a Facebook, fb.watch, or fb.me address. Halden reads the public page and gives you the real file — highest quality first."
 					}),
 					/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("form", {
-						className: "mt-8 flex flex-col gap-3 sm:flex-row",
+						className: "enter d5 mt-8 flex flex-col gap-3 sm:flex-row",
 						onSubmit: (event) => {
 							event.preventDefault();
 							resolve(url);
@@ -175,11 +181,11 @@ function Saver() {
 										autoCapitalize: "off",
 										autoCorrect: "off",
 										spellCheck: false,
-										className: "h-12 w-full rounded-xl border border-border bg-surface pr-12 pl-11 text-base text-fg outline-none placeholder:text-faint focus-visible:border-primary"
+										className: "field h-12 w-full rounded-xl border border-border bg-surface pr-12 pl-11 text-base text-fg outline-none placeholder:text-faint"
 									}),
 									url ? /* @__PURE__ */ (0, import_jsx_runtime.jsx)("button", {
 										type: "button",
-										className: "absolute top-1/2 right-2 flex size-8 -translate-y-1/2 items-center justify-center rounded-lg text-muted hover:bg-surface-2 hover:text-fg",
+										className: "press absolute top-1/2 right-2 flex size-8 -translate-y-1/2 items-center justify-center rounded-lg text-muted hover:bg-surface-2 hover:text-fg",
 										onClick: () => {
 											setUrl("");
 											setError(null);
@@ -192,13 +198,22 @@ function Saver() {
 							/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("button", {
 								type: "submit",
 								disabled: loading,
-								className: "inline-flex h-12 items-center justify-center gap-2 rounded-xl bg-primary px-5 text-base font-medium text-primary-fg transition-opacity duration-200 hover:opacity-90 disabled:opacity-60",
-								children: [loading ? /* @__PURE__ */ (0, import_jsx_runtime.jsx)(LoaderCircle, { className: "size-5 animate-spin motion-reduce:animate-none" }) : /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Download, { className: "size-5" }), loading ? "Reading" : "Fetch media"]
+								className: "press inline-flex h-12 items-center justify-center gap-2 rounded-xl bg-primary px-5 text-base font-medium text-primary-fg hover:opacity-90 disabled:opacity-60",
+								children: [/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("span", {
+									className: "relative grid size-5 place-items-center",
+									children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)(Download, {
+										className: `icon-swap col-start-1 row-start-1 size-5 ${loading ? "icon-off" : "icon-on"}`,
+										"aria-hidden": "true"
+									}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)(LoaderCircle, {
+										className: `icon-swap col-start-1 row-start-1 size-5 ${loading ? "icon-on animate-spin motion-reduce:animate-none" : "icon-off"}`,
+										"aria-hidden": "true"
+									})]
+								}), loading ? "Reading" : "Fetch media"]
 							})
 						]
 					}),
 					/* @__PURE__ */ (0, import_jsx_runtime.jsx)("ul", {
-						className: "mt-4 flex flex-wrap gap-2",
+						className: "enter d6 mt-4 flex flex-wrap gap-2",
 						children: HINTS.map((hint) => /* @__PURE__ */ (0, import_jsx_runtime.jsx)("li", {
 							className: "rounded-full border border-border px-3 py-1 text-xs text-faint",
 							children: hint
@@ -206,7 +221,7 @@ function Saver() {
 					}),
 					error ? /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("p", {
 						role: "alert",
-						className: "mt-4 flex items-start gap-2 text-sm text-fg",
+						className: "enter mt-4 flex items-start gap-2 text-sm text-fg",
 						children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)(CircleAlert, {
 							className: "mt-0.5 size-4 shrink-0 text-primary",
 							"aria-hidden": "true"
@@ -214,14 +229,37 @@ function Saver() {
 					}) : null
 				]
 			}),
-			loading && !result ? /* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", {
-				className: "mt-10 text-sm text-muted",
-				children: "Opening the public page and picking the best file…"
+			loading && !result ? /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+				className: "enter mt-10",
+				role: "status",
+				children: [
+					/* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", {
+						className: "text-sm text-muted",
+						children: "Opening the public page and picking the best file…"
+					}),
+					/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
+						className: "relative mt-4 h-1 overflow-hidden rounded-full bg-surface-2",
+						children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", { className: "scan-bar" })
+					}),
+					/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+						className: "mt-4 space-y-3",
+						children: [
+							/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { className: "shimmer h-48 rounded-xl" }),
+							/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { className: "shimmer h-12 rounded-xl" }),
+							/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { className: "shimmer h-12 w-2/3 rounded-xl" })
+						]
+					})
+				]
 			}) : null,
 			result ? /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("section", {
-				className: "rise mt-10 rounded-lg border border-border bg-surface p-4 sm:p-5",
+				className: "enter relative mt-10 overflow-hidden rounded-lg border border-border bg-surface p-4 sm:p-5",
 				"aria-live": "polite",
+				"aria-busy": loading,
 				children: [
+					loading ? /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
+						className: "absolute inset-x-0 top-0 h-1 overflow-hidden bg-surface-2",
+						children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", { className: "scan-bar" })
+					}) : null,
 					/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
 						className: "flex flex-wrap items-center gap-2 text-sm text-muted",
 						children: [
@@ -247,7 +285,7 @@ function Saver() {
 						children: result.title
 					}),
 					best ? /* @__PURE__ */ (0, import_jsx_runtime.jsx)("video", {
-						className: "mt-4 max-h-player w-full rounded-xl bg-bg",
+						className: "media-in enter mt-4 max-h-player w-full rounded-xl bg-bg",
 						controls: true,
 						playsInline: true,
 						preload: "metadata",
@@ -263,7 +301,7 @@ function Saver() {
 							className: "mb-2 text-sm font-medium text-muted",
 							children: "Qualities"
 						}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("ul", {
-							className: "divide-y divide-border overflow-hidden rounded-xl border border-border",
+							className: "stagger divide-y divide-border overflow-hidden rounded-xl border border-border",
 							children: clip.variants.map((variant, index) => {
 								const name = variantName(result.title, variant, index);
 								const size = formatBytes(variant.bytes);
@@ -285,7 +323,7 @@ function Saver() {
 										})]
 									}), /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("a", {
 										href: fileHref(variant.url, name),
-										className: index === 0 && clipIndex === 0 ? "inline-flex h-11 shrink-0 items-center gap-2 rounded-xl bg-primary px-3 text-sm font-medium text-primary-fg" : "inline-flex h-11 shrink-0 items-center gap-2 rounded-xl border border-border px-3 text-sm font-medium text-fg",
+										className: index === 0 && clipIndex === 0 ? "press inline-flex h-11 shrink-0 items-center gap-2 rounded-xl bg-primary px-3 text-sm font-medium text-primary-fg" : "press inline-flex h-11 shrink-0 items-center gap-2 rounded-xl border border-border px-3 text-sm font-medium text-fg",
 										children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)(Download, {
 											className: "size-4",
 											"aria-hidden": "true"
@@ -297,7 +335,7 @@ function Saver() {
 					}, clip.id)),
 					result.images.length > 0 && result.clips.length > 0 ? /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("a", {
 						href: fileHref(result.images[0].url, imageName(result.title, result.images[0], 0)),
-						className: "mt-4 inline-flex h-11 items-center gap-2 text-sm font-medium text-muted hover:text-fg",
+						className: "press mt-4 inline-flex h-11 items-center gap-2 text-sm font-medium text-muted hover:text-fg",
 						children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)(Image, {
 							className: "size-4",
 							"aria-hidden": "true"
@@ -312,7 +350,7 @@ function Saver() {
 								children: result.images.length > 1 ? "Photos" : "Photo"
 							}), result.images.length > 1 ? /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("button", {
 								type: "button",
-								className: "inline-flex h-11 items-center gap-2 rounded-xl border border-border px-3 text-sm font-medium",
+								className: "press inline-flex h-11 items-center gap-2 rounded-xl border border-border px-3 text-sm font-medium",
 								onClick: () => {
 									result.images.forEach((image, index) => {
 										const anchor = document.createElement("a");
@@ -329,7 +367,7 @@ function Saver() {
 								}), "Save all"]
 							}) : null]
 						}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("ul", {
-							className: "grid grid-cols-2 gap-3 sm:grid-cols-3",
+							className: "stagger grid grid-cols-2 gap-3 sm:grid-cols-3",
 							children: result.images.map((image, index) => {
 								const name = imageName(result.title, image, index);
 								return /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("li", {
@@ -358,10 +396,10 @@ function Saver() {
 					className: "text-sm font-medium text-muted",
 					children: "Recent"
 				}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("ul", {
-					className: "mt-3 divide-y divide-border overflow-hidden rounded-xl border border-border",
+					className: "stagger mt-3 divide-y divide-border overflow-hidden rounded-xl border border-border",
 					children: recent.map((item) => /* @__PURE__ */ (0, import_jsx_runtime.jsx)("li", { children: /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("button", {
 						type: "button",
-						className: "flex w-full items-center gap-3 px-3 py-3 text-left hover:bg-surface",
+						className: "press flex w-full items-center gap-3 px-3 py-3 text-left transition-colors duration-200 hover:bg-surface",
 						onClick: () => void resolve(item.url),
 						children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)(KindIcon, { kind: item.kind }), /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("span", {
 							className: "min-w-0 flex-1",

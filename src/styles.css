@@ -39,23 +39,125 @@
   }
 }
 
-@keyframes rise {
+@keyframes enter {
   from {
     opacity: 0;
-    transform: translateY(8px);
+    transform: translateY(12px);
+    filter: blur(4px);
   }
   to {
     opacity: 1;
     transform: none;
+    filter: blur(0);
   }
 }
 
-.rise {
-  animation: rise 220ms ease-out;
+.enter {
+  animation: enter 460ms cubic-bezier(0.2, 0, 0, 1) both;
 }
+
+.d1 { animation-delay: 40ms; }
+.d2 { animation-delay: 110ms; }
+.d3 { animation-delay: 180ms; }
+.d4 { animation-delay: 260ms; }
+.d5 { animation-delay: 340ms; }
+.d6 { animation-delay: 420ms; }
+
+@keyframes breathe {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.06); }
+}
+
+.mark {
+  animation: breathe 2.8s ease-in-out infinite;
+}
+
+.press {
+  transition: scale 150ms ease-out, opacity 200ms ease-out, background-color 200ms ease-out, border-color 200ms ease-out, color 200ms ease-out;
+}
+
+.press:active:not(:disabled) {
+  scale: 0.96;
+}
+
+.field {
+  transition: border-color 200ms ease, box-shadow 200ms ease;
+}
+
+.field:focus-visible {
+  border-color: var(--color-primary);
+  box-shadow: 0 0 0 4px color-mix(in srgb, var(--color-primary) 28%, transparent);
+}
+
+.icon-swap {
+  transition: opacity 300ms cubic-bezier(0.2, 0, 0, 1), scale 300ms cubic-bezier(0.2, 0, 0, 1), filter 300ms cubic-bezier(0.2, 0, 0, 1);
+}
+
+.icon-on {
+  opacity: 1;
+  scale: 1;
+  filter: blur(0);
+}
+
+.icon-off {
+  opacity: 0;
+  scale: 0.25;
+  filter: blur(4px);
+}
+
+@keyframes scan {
+  from { transform: translateX(-120%); }
+  to { transform: translateX(320%); }
+}
+
+.scan-bar {
+  position: absolute;
+  inset-block: 0;
+  width: 40%;
+  background: linear-gradient(90deg, transparent, var(--color-primary), transparent);
+  animation: scan 1.15s ease-in-out infinite;
+}
+
+@keyframes shimmer {
+  from { background-position: 120% 0; }
+  to { background-position: -120% 0; }
+}
+
+.shimmer {
+  background-image: linear-gradient(
+    90deg,
+    var(--color-surface-2) 20%,
+    color-mix(in srgb, var(--color-primary) 32%, var(--color-surface-2)) 50%,
+    var(--color-surface-2) 80%
+  );
+  background-size: 220% 100%;
+  animation: shimmer 1.25s ease-in-out infinite;
+}
+
+.stagger > li {
+  animation: enter 420ms cubic-bezier(0.2, 0, 0, 1) both;
+}
+
+.stagger > li:nth-child(1) { animation-delay: 50ms; }
+.stagger > li:nth-child(2) { animation-delay: 120ms; }
+.stagger > li:nth-child(3) { animation-delay: 190ms; }
+.stagger > li:nth-child(4) { animation-delay: 260ms; }
+.stagger > li:nth-child(5) { animation-delay: 330ms; }
 
 @media (prefers-reduced-motion: reduce) {
-  .rise {
+  .enter,
+  .mark,
+  .scan-bar,
+  .shimmer,
+  .stagger > li {
     animation: none;
+    opacity: 1;
+    filter: none;
+    transform: none;
+  }
+
+  .icon-swap {
+    transition: none;
   }
 }
+
