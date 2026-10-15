@@ -1,7 +1,7 @@
 import { i as __toESM } from "../_runtime.mjs";
 import { K as require_react, b as require_jsx_runtime } from "../_libs/@tanstack/react-router+[...].mjs";
 import { a as Image, c as Clock3, i as Link2, l as Clapperboard, o as Film, r as LoaderCircle, s as Download, t as X, u as CircleAlert } from "../_libs/lucide-react.mjs";
-//#region node_modules/.nitro/vite/services/ssr/assets/routes-CK86oXY8.js
+//#region node_modules/.nitro/vite/services/ssr/assets/routes-B3pQidHN.js
 var import_react = /* @__PURE__ */ __toESM(require_react());
 var import_jsx_runtime = require_jsx_runtime();
 var RECENT_KEY = "halden.recent";
@@ -157,7 +157,9 @@ function Saver() {
 						children: "Paste a Facebook, fb.watch, or fb.me address. Halden reads the public page and gives you the real file — highest quality first."
 					}),
 					/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("form", {
+						id: "save-form",
 						className: "enter d5 mt-8 flex flex-col gap-3 sm:flex-row",
+						action: "",
 						onSubmit: (event) => {
 							event.preventDefault();
 							resolve(url);
@@ -181,6 +183,11 @@ function Saver() {
 										autoCapitalize: "off",
 										autoCorrect: "off",
 										spellCheck: false,
+										onKeyDown: (event) => {
+											if (event.key !== "Enter") return;
+											event.preventDefault();
+											resolve(url);
+										},
 										className: "field h-12 w-full rounded-xl border border-border bg-surface pr-12 pl-11 text-base text-fg outline-none placeholder:text-faint"
 									}),
 									url ? /* @__PURE__ */ (0, import_jsx_runtime.jsx)("button", {
@@ -196,8 +203,11 @@ function Saver() {
 								]
 							}),
 							/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("button", {
-								type: "submit",
+								type: "button",
 								disabled: loading,
+								onClick: () => {
+									resolve(url);
+								},
 								className: "press inline-flex h-12 items-center justify-center gap-2 rounded-xl bg-primary px-5 text-base font-medium text-primary-fg hover:opacity-90 disabled:opacity-60",
 								children: [/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("span", {
 									className: "relative grid size-5 place-items-center",

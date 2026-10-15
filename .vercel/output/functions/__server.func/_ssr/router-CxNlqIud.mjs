@@ -2,8 +2,8 @@ import { i as __toESM, n as __exportAll } from "../_runtime.mjs";
 import { K as require_react, _ as createFileRoute, b as require_jsx_runtime, d as Scripts, f as HeadContent, g as lazyRouteComponent, h as Outlet, m as createRouter, v as createRootRoute, y as useRouter } from "../_libs/@tanstack/react-router+[...].mjs";
 import { n as TriangleAlert } from "../_libs/lucide-react.mjs";
 import { a as union, i as string, n as number, r as object, t as literal } from "../_libs/zod.mjs";
-//#region node_modules/.nitro/vite/services/ssr/assets/router-DXYU3gMA.js
-var router_DXYU3gMA_exports = /* @__PURE__ */ __exportAll({ getRouter: () => getRouter });
+//#region node_modules/.nitro/vite/services/ssr/assets/router-CxNlqIud.js
+var router_CxNlqIud_exports = /* @__PURE__ */ __exportAll({ getRouter: () => getRouter });
 var import_react = /* @__PURE__ */ __toESM(require_react());
 var import_jsx_runtime = require_jsx_runtime();
 var FALLBACK_MESSAGE = "An unexpected error occurred. Try reloading the page.";
@@ -356,6 +356,7 @@ var Route$3 = createRootRoute({
 		children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("head", { children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(HeadContent, {}) }), /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("body", {
 			className: "bg-bg font-sans text-fg antialiased",
 			children: [
+				/* @__PURE__ */ (0, import_jsx_runtime.jsx)("script", { dangerouslySetInnerHTML: { __html: "document.addEventListener('submit',function(e){var t=e.target;if(t&&t.id==='save-form')e.preventDefault();},true)" } }),
 				/* @__PURE__ */ (0, import_jsx_runtime.jsx)(PreviewHostBridge, {}),
 				/* @__PURE__ */ (0, import_jsx_runtime.jsx)(AuthProvider, { children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Outlet, {}) }),
 				/* @__PURE__ */ (0, import_jsx_runtime.jsx)(Scripts, {})
@@ -363,7 +364,7 @@ var Route$3 = createRootRoute({
 		})]
 	})
 });
-var $$splitComponentImporter = () => import("./routes-CK86oXY8.mjs");
+var $$splitComponentImporter = () => import("./routes-B3pQidHN.mjs");
 var Route$2 = createFileRoute("/")({ component: lazyRouteComponent($$splitComponentImporter, "component") });
 var PAGE_HOST = /^(?:[a-z0-9-]+\.)*(?:facebook\.com|fb\.com|fb\.watch|fb\.me|fb\.gg)$/i;
 var MEDIA_HOST = /^(?:[a-z0-9-]+\.)*(?:fbcdn\.net|fbsbx\.com)$/i;
@@ -1135,4 +1136,4 @@ function getRouter() {
 	});
 }
 //#endregion
-export { getRouter, router_DXYU3gMA_exports as t };
+export { getRouter, router_CxNlqIud_exports as t };

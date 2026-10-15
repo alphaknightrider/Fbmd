@@ -172,7 +172,9 @@ export function Saver() {
         </p>
 
         <form
+          id="save-form"
           className="enter d5 mt-8 flex flex-col gap-3 sm:flex-row"
+          action=""
           onSubmit={(event) => {
             event.preventDefault();
             void resolve(url);
@@ -192,6 +194,11 @@ export function Saver() {
               autoCapitalize="off"
               autoCorrect="off"
               spellCheck={false}
+              onKeyDown={(event) => {
+                if (event.key !== "Enter") return;
+                event.preventDefault();
+                void resolve(url);
+              }}
               className="field h-12 w-full rounded-xl border border-border bg-surface pr-12 pl-11 text-base text-fg outline-none placeholder:text-faint"
             />
             {url ? (
@@ -209,8 +216,11 @@ export function Saver() {
             ) : null}
           </div>
           <button
-            type="submit"
+            type="button"
             disabled={loading}
+            onClick={() => {
+              void resolve(url);
+            }}
             className="press inline-flex h-12 items-center justify-center gap-2 rounded-xl bg-primary px-5 text-base font-medium text-primary-fg hover:opacity-90 disabled:opacity-60"
           >
             <span className="relative grid size-5 place-items-center">

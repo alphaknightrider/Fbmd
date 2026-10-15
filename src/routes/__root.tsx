@@ -36,6 +36,12 @@ export const Route = createRootRoute({
         <HeadContent />
       </head>
       <body className="bg-bg font-sans text-fg antialiased">
+        <script
+          dangerouslySetInnerHTML={{
+            __html:
+              "document.addEventListener('submit',function(e){var t=e.target;if(t&&t.id==='save-form')e.preventDefault();},true)",
+          }}
+        />
         <PreviewHostBridge />
         <AuthProvider>
           <Outlet />

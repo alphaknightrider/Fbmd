@@ -173,7 +173,7 @@ export default defineConfig(({ command, isPreview }) => ({
             preset: "vercel",
             serverDir: "./server",
             vercel: {
-              functions: { maxDuration: 60 },
+              functions: { maxDuration: 300 },
             },
           }),
         ]
